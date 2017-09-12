@@ -10,7 +10,7 @@ defmodule MainApp.Mixfile do
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
       elixir: "~> 1.5",
-      erlc_paths: ["lib"], # ADD THIS OPTION for possible using erlang modules
+      erlc_paths: erlc_paths(Mix.env), # ADD THIS OPTION for possible using erlang modules
       # erlc_include_path: ["lib/include"], # ADD THIS OPTION too if need
       start_permanent: Mix.env == :prod,
       deps: deps()
@@ -34,4 +34,12 @@ defmodule MainApp.Mixfile do
       # {:sibling_app_in_umbrella, in_umbrella: true},
     ]
   end
+
+  defp erlc_paths(:test),
+    do: ["lib", "test"]
+  defp erlc_paths(_),
+    do: ["lib"]
+
+
+
 end

@@ -26,6 +26,9 @@ cd ..
     mix coveralls --umbrella
     mix credo --strict
     mix dogma
+    mix dialyzer
+    
+Warn! Последнее - очень надолго.
 
 # Запуск
 
@@ -63,3 +66,8 @@ cd ..
 - https://github.com/surik/mix_debeam
 - http://trivelop.de/2015/05/19/elixir-inchci-add/ и https://github.com/rrrene/inch_ex
 - https://goodcode.in/elixir/6/a-simple-way-to-automatically-set-the-semantic-version-of-your-elixir-app
+- https://github.com/jeremyjh/dialyxir
+
+# Travis
+
+- https://github.com/Dzol/lyra/blob/93359a1019eaea208b927589ce70486e95fb44cb/.travis.yml

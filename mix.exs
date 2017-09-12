@@ -6,9 +6,7 @@ defmodule MultiApp.Mixfile do
       apps_path: "apps",
       start_permanent: Mix.env == :prod,
       deps: deps(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test]
-    ]
+    ] ++ cover() ++ dialyzer()
   end
 
   # Dependencies listed here are available only for this
@@ -21,13 +19,37 @@ defmodule MultiApp.Mixfile do
       {:distillery, "~> 1.5.1", runtime: false},
       {:excoveralls, "~> 0.7", only: :test},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:dogma, "~> 0.1", only: :dev}
-      # {:exrm, "~> 1.0.8"}
-      # {:relx, github: "erlware/relx", override: true},
-      # {:erlware_commons, "~> 0.22.0", override: true}
+      {:dogma, "~> 0.1", only: :dev},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
   ]
   end
 
+  defp cover do
+    [test_coverage: [tool: ExCoveralls],
+     preferred_cli_env: [coveralls: :test]]
+  end
+
+  defp dialyzer do
+    [dialyzer: [plt_core_path: ".dialyzer/"]
+    ]
+    # dialyzer: [plt_file: ".dialyzer/.local.plt"]]
+    # dialyzer: [flags: ["-Werror_handling", "-Wrace_conditions", "-Wno_opaque", "-Wunderspecs"]]
+
+    # .travis.yml
+    # ...
+    # ...
+    # cache:
+    #   directories:
+    #     - .dialyzer
+    #
+    # before_script:
+    #   - "[[ -f .dialyzer/local.plt ]] || mix dialyzer.plt"
+    #
+    # script:
+    #   - mix test
+    #   - mix dialyzer --check_plt
+    # ...
+  end
 
   def app_version do
       # get suffix
