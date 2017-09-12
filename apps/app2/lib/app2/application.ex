@@ -7,11 +7,16 @@ defmodule App2.Application do
   require Logger
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
+
     Logger.info "App2:start"
+
+
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: App2.Worker.start_link(arg)
       # {App2.Worker, arg},
+      worker(App2.CowboyWorker, [], function: :run)
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -19,4 +24,5 @@ defmodule App2.Application do
     opts = [strategy: :one_for_one, name: App2.Supervisor]
     Supervisor.start_link(children, opts)
   end
+
 end

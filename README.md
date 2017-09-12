@@ -52,7 +52,19 @@ Warn! Последнее - очень надолго.
 
 # Запуск релиза
 
+    _build/prod/rel/multi_app/bin/multi_app start
+
+Теперь можно открыть в браузере страницу http://localhost:8071/info
+
+# Остановка релиза
+
+    _build/prod/rel/multi_app/bin/multi_app stop
+
+# Запуск релиза в консоли
+
     _build/prod/rel/multi_app/bin/multi_app console
+
+
 
 # Ссылки на будущее
 
