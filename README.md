@@ -55,8 +55,10 @@ Warn! Последнее - очень надолго.
     _build/prod/rel/multi_app/bin/multi_app start
     
 Проверяем:
-    
+
     curl -v http://localhost:8071/info?foo=bar
+    
+    curl -v http://localhost:8071/info -H "Content-Type: application/json" -X POST -d '{"foo": "bar"}'
 
 
 # Остановка релиза

@@ -17,7 +17,7 @@ defmodule App2.Application do
       # Starts a worker by calling: App2.Worker.start_link(arg)
       # {App2.Worker, arg},
       # worker(App2.CowboyWorker, [], function: :run)
-      Plug.Adapters.Cowboy2.child_spec(:http, App2.Router, [], [port: 8071])
+      Plug.Adapters.Cowboy2.child_spec(:http, App2.Pipeline, [], [port: 8071])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

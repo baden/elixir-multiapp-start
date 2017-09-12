@@ -1,29 +1,32 @@
 defmodule App2.Router do
   use Plug.Router
 
-  plug Plug.Logger
+  import App2.InfoController
+
+  # plug Plug.Logger
   plug :match
+  plug Plug.Parsers, parsers: [:urlencoded, :multipart, :json],
+                     pass: ["application/json"],
+                     json_decoder: Poison
+
+  # plug Plug.MethodOverride
+  # plug Plug.Head
+  # plug Plug.Session,
+  #   store: :cookie,
+  #   key: "_app_plus_admin_key",
+  #   signing_salt: "CUXezb4u"
+
   plug :dispatch
 
-  match "/info" do
-    foo = conn.params["foo"]
-    # foo = conn.opts["foo"]
-    conn
-    |> put_resp_content_type("application/json")
-    |> send_resp(200, body(foo))
-  end
+  get "/info", do: info(conn)
+  post "/info", do: info(conn)
 
   match _ do
     conn
-    |> send_resp(200, "not found")
+    |> send_resp(404, "not found")
   end
 
 
-  def body(foo) do
-    %{tbd: "WTF2", foo: foo}
-    # |> :jiffy.encode
-    |> Poison.encode!()
-  end
 
 
 end
