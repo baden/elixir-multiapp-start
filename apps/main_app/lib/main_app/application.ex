@@ -8,6 +8,8 @@ defmodule MainApp.Application do
 
   def start(_type, _args) do
     Logger.info "MainApp:start"
+    # h1 = MainApp.hello1 "123"
+    # Logger.info "Hello1 = #{inspect(h1)}"
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: MainApp.Worker.start_link(arg)

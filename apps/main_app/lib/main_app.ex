@@ -1,4 +1,7 @@
 defmodule MainApp do
+
+  alias :erl_mod, as: ErlMod
+
   @moduledoc """
   Documentation for MainApp.
   """
@@ -14,5 +17,10 @@ defmodule MainApp do
   """
   def hello do
     :world
+  end
+
+  @spec hello1(integer) :: integer
+  def hello1(x) do
+    ErlMod.foo1(x)
   end
 end

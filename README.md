@@ -23,10 +23,21 @@ cd ..
 # Тестирование
 
     mix test --trace --cover
+    mix coveralls --umbrella
+    mix credo --strict
+    mix dogma
 
 # Запуск
 
     mix run
+    
+# Запуск в консоли
+
+    iex -S mix
+    
+После изменения исходников, можно в консоли выполнить команду:
+
+    recompile
 
 # Сборка
 
@@ -48,3 +59,7 @@ cd ..
 - https://github.com/lpil/dogma
 - https://github.com/rrrene/credo
 - https://github.com/alco/benchfella
+- https://github.com/lpil/exfmt#atom и https://atom.io/packages/exfmt-atom
+- https://github.com/surik/mix_debeam
+- http://trivelop.de/2015/05/19/elixir-inchci-add/ и https://github.com/rrrene/inch_ex
+- https://goodcode.in/elixir/6/a-simple-way-to-automatically-set-the-semantic-version-of-your-elixir-app

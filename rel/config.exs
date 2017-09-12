@@ -2,7 +2,8 @@
 # They can then be used by adding `plugin MyPlugin` to
 # either an environment, or release definition, where
 # `MyPlugin` is the name of the plugin module.
-Path.join(["rel", "plugins", "*.exs"])
+["rel", "plugins", "*.exs"]
+|> Path.join()
 |> Path.wildcard()
 |> Enum.map(&Code.eval_file(&1))
 
@@ -30,14 +31,16 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"Q4RU!%t8fXvWOb777}IO>D)7rJWyGuZuA775pH5eh5$Y8m`$Bd{`FFx&dnK;C>p6"
+  set cookie:
+    :"Q4RU!%t8fXvWOb777}IO>D)7rJWyGuZuA775pH5eh5$Y8m`$Bd{`FFx&dnK;C>p6"
 
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"DmC6BIP~4ca3([TZJ,5)4,^M/l(0f{oM18K<4P(]Y)!wQgC}|!XL19,vR;*{O*MA"
+  set cookie:
+    :"DmC6BIP~4ca3([TZJ,5)4,^M/l(0f{oM18K<4P(]Y)!wQgC}|!XL19,vR;*{O*MA"
 end
 
 # You may define one or more releases in this file.
@@ -46,7 +49,9 @@ end
 # will be used by default
 
 release :multi_app do
-  set version: "0.1.0"
+  # set version: "0.1.0"
+  set version: MultiApp.Mixfile.app_version()
+
   set applications: [
     :runtime_tools,
     app2: :permanent,
