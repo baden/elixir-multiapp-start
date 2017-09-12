@@ -32,20 +32,12 @@ environment :dev do
   set include_erts: false
   set cookie: :"Q4RU!%t8fXvWOb777}IO>D)7rJWyGuZuA775pH5eh5$Y8m`$Bd{`FFx&dnK;C>p6"
 
-  set overlays: [
-      {:mkdir, "logs"},
-      {:mkdir, "mnesia"}
-    ]
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
   set cookie: :"DmC6BIP~4ca3([TZJ,5)4,^M/l(0f{oM18K<4P(]Y)!wQgC}|!XL19,vR;*{O*MA"
-  set overlays: [
-      {:mkdir, "logs"},
-      {:mkdir, "mnesia"}
-    ]
 end
 
 # You may define one or more releases in this file.
@@ -59,5 +51,9 @@ release :multi_app do
     :runtime_tools,
     app2: :permanent,
     main_app: :permanent
+  ]
+  set overlays: [
+    {:mkdir, "logs"},
+    {:mkdir, "mnesia"}
   ]
 end

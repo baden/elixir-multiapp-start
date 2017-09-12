@@ -42,6 +42,7 @@ cd ..
 
 # Ссылки на будущее
 
+- https://github.com/18Months/distillery_packager
 - https://github.com/parroty/excoveralls
 - https://github.com/parroty/excoveralls_umbrella
 - https://github.com/lpil/dogma
