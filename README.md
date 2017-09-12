@@ -85,6 +85,7 @@ Warn! Последнее - очень надолго.
 - https://github.com/ankhers/mongodb
 - https://github.com/mpugach/elixir_cowboy_mongo_benchmark_app
 - https://github.com/VoiceLayer/plug_cowboy2
+- https://github.com/VoiceLayer/plug_cowboy2_example
 
 # Travis
 
