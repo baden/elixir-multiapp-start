@@ -27,7 +27,9 @@ defmodule App2.Mixfile do
   defp deps do
     [
       { :cowboy, github: "ninenines/cowboy", tag: "2.0.0-rc.2" },
-      { :jsex, "~> 2.0.0" }
+      # {:jiffy, github: "davisp/jiffy", tag: "0.14.11"},
+      {:poison, "~> 3.1"},
+      # { :jsex, "~> 2.0.0" }
     ]
   end
 end

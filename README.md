@@ -53,8 +53,11 @@ Warn! Последнее - очень надолго.
 # Запуск релиза
 
     _build/prod/rel/multi_app/bin/multi_app start
+    
+Проверяем:
+    
+    curl -v http://localhost:8071/info?foo=bar
 
-Теперь можно открыть в браузере страницу http://localhost:8071/info
 
 # Остановка релиза
 
@@ -79,6 +82,9 @@ Warn! Последнее - очень надолго.
 - http://trivelop.de/2015/05/19/elixir-inchci-add/ и https://github.com/rrrene/inch_ex
 - https://goodcode.in/elixir/6/a-simple-way-to-automatically-set-the-semantic-version-of-your-elixir-app
 - https://github.com/jeremyjh/dialyxir
+- https://github.com/ankhers/mongodb
+- https://github.com/mpugach/elixir_cowboy_mongo_benchmark_app
+- https://github.com/VoiceLayer/plug_cowboy2
 
 # Travis
 
